@@ -3,37 +3,39 @@
     <div class="container">
         <h1 class="mt-3">Lista Film</h1>
         <p>Sono stati trovati <span class="fs-3">{{ store.filmsList.length }}</span> films con la tua chiave di ricerca</p>
-        <div v-for="film in store.filmsList">
+        <article class="d-flex flex-wrap">
+            <div v-for="film in store.filmsList" class="w-25">
 
-            <img :src="'https://image.tmdb.org/t/p/w500' + film.poster_path" alt="">
-            <h4>Titolo: {{ film.title }}</h4>
+                <img :src="'https://image.tmdb.org/t/p/w500' + film.poster_path" :alt="film.title" class="w-75">
 
-            <!-- <h5>Titolo Originale: {{ film.original_title }}</h5> -->
+                <h4>Titolo: {{ film.title }}</h4>
 
-            <h6>Lingua Originale: {{ getFlag(film.original_language) }}</h6>
+                <!-- <h5>Titolo Originale: {{ film.original_title }}</h5> -->
 
-            <p> Voto {{ film.vote_average}}</p>
+                <h6>Lingua Originale: {{ getFlag(film.original_language) }}</h6>
 
-        </div>
+                <p> Voto {{ film.vote_average}}</p>
 
+            </div>
+        </article>
         <h1 class="mt-5">Lista serie TV</h1>
 
         <p>Sono state trovate <span class="fs-3">{{ store.tvSeriesList.length }}</span> serie TV con la tua chiave di ricerca</p>
+        <article class="d-flex flex-wrap">
+            <div v-for="tvSeries in store.tvSeriesList" class="w-25">
 
-        <div v-for="tvSeries in store.tvSeriesList">
+                <img :src="'https://image.tmdb.org/t/p/w500' + tvSeries.poster_path" :alt="tvSeries.name" class="w-75">
 
-            <img :src="'https://image.tmdb.org/t/p/w500' + tvSeries.poster_path" alt="">
+                <h4>Titolo: {{ tvSeries.name }}</h4>
 
-            <h4>Titolo: {{ tvSeries.name }}</h4>
+                <!-- <h5>Titolo Originale: {{ tvSeries.original_title }}</h5> -->
 
-            <!-- <h5>Titolo Originale: {{ tvSeries.original_title }}</h5> -->
+                <h6>Lingua Originale: {{ getFlag(tvSeries.original_language) }}</h6>
 
-            <h6>Lingua Originale: {{ getFlag(tvSeries.original_language) }}</h6>
+                <p> Voto {{ tvSeries.vote_average}}</p>
 
-            <p> Voto {{ tvSeries.vote_average}}</p>
-
-        </div>
-
+            </div>
+        </article>
 
     </div>
   </template>
