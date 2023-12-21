@@ -21,6 +21,7 @@
         store,
         filmsList: [],
         filmSearch: '',
+        tvSeriesList: [],
       };
     },
 
