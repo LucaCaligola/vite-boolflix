@@ -29,13 +29,13 @@
         data() {
         return {
             store,
-            languages: ['en', 'es', 'fr'],
+            languages: ['it','en', 'es', 'fr'],
         }
     },
     methods: {
     getFlag(language) {
 
-      return languageFlags[language] || '🌐';
+      return languageFlags[language] || 'Non definita';
     },
   },
 
