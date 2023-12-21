@@ -2,12 +2,15 @@ import { reactive } from "vue";
 import axios  from "axios";
 
 export const store = reactive({
-  filmSearch: null,
+  filmSearch: '',
+  
 
-  apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=0a1a18272fb8d93351b833485b06018e&query=ritorno+al+futuro',
+  apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=0a1a18272fb8d93351b833485b06018e&query=',
 
-  getFilms() {
-    axios.get(this.apiUrl)
+  getFilms(filmSearch = ''){
+    console.log(filmSearch);
+    
+    axios.get(this.apiUrl + this.filmSearch)
       .then((response) => {
         // handle success
         console.log(response.data.results);

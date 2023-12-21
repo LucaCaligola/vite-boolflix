@@ -2,7 +2,9 @@
 <template>
     <div>
       <h1 class="container">Lista Film</h1>
-      <div>
+      <div v-for="film in store.filmsList">
+
+        {{ film.title }}
 
       </div>
     </div>
@@ -10,7 +12,17 @@
   
   <script>
   export default {
+        data() {
+        return {
+            store
+        }
+  }
     
   };
+
+  import { store } from '../../js/store';
+
+
+  
   </script>
   
