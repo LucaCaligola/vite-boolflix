@@ -1,10 +1,13 @@
 <template>
     <header>
-      <div class="container d-flex justify-content-between align-items-center">
+    <div class="container d-flex justify-content-between align-items-center">
         <span>BOOLFLIX</span>
-        <input type="text" placeholder="Cerca un titolo" />
-      </div>
-    </header>
+        <div>
+            <input type="text" placeholder="Cerca un titolo" v-model="filmSearch" class="m-3"/>
+            <button @click="updateFilmSearch">Cerca</button>
+        </div>
+    </div>
+  </header>
   </template>
   
   <script>
@@ -14,27 +17,13 @@
     data() {
       return {
         filmsList: [],
+        filmSearch: '',
         apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=0a1a18272fb8d93351b833485b06018e&query=ritorno+al+futuro',
       };
     },
-    methods: {
-      getFilms() {
-        axios.get(this.apiUrl)
-          .then((response) => {
-            // handle success
-            console.log(response.data.results);
-          })
-          .catch((error) => {
-            // handle error
-            console.error(error);
-          })
-          .finally(() => {
-            // always executed
-          });
-      },
-    },
+
     created() {
-      this.getFilms();
+     
     },
   };
   </script>
