@@ -1,32 +1,30 @@
 
 <template>
-    <div class="container">
-        <h1 class="mt-3">Lista Film</h1>
+    <div class="container main">
         <p>Sono stati trovati <span class="fs-3">{{ store.filmsList.length }}</span> films con la tua chiave di ricerca</p>
-        <article class="d-flex flex-wrap">
+        <card class="d-flex flex-wrap">
             <div v-for="film in store.filmsList" class="w-25">
 
-                <img :src="'https://image.tmdb.org/t/p/w500' + film.poster_path" :alt="film.title" class="w-75">
+                <img :src="'https://image.tmdb.org/t/p/w342' + film.poster_path" :alt="film.title" class="w-75 mb-3">
+                <div class="show">
+                    <h4 class="w-75">Titolo: {{ film.title }}</h4>
 
-                <h4>Titolo: {{ film.title }}</h4>
+                    <!-- <h5>Titolo Originale: {{ film.original_title }}</h5> -->
 
-                <!-- <h5>Titolo Originale: {{ film.original_title }}</h5> -->
+                    <h6>Lingua Originale: {{ getFlag(film.original_language) }}</h6>
 
-                <h6>Lingua Originale: {{ getFlag(film.original_language) }}</h6>
-
-                <p> Voto {{ film.vote_average}}</p>
-
+                    <p> Voto {{ film.vote_average}}</p>
+                </div>
             </div>
-        </article>
-        <h1 class="mt-5">Lista serie TV</h1>
+        </card>
 
-        <p>Sono state trovate <span class="fs-3">{{ store.tvSeriesList.length }}</span> serie TV con la tua chiave di ricerca</p>
-        <article class="d-flex flex-wrap">
+        <p class="mt-5">Sono state trovate <span class="fs-3">{{ store.tvSeriesList.length }}</span> serie TV con la tua chiave di ricerca</p>
+        <card class="d-flex flex-wrap">
             <div v-for="tvSeries in store.tvSeriesList" class="w-25">
 
-                <img :src="'https://image.tmdb.org/t/p/w500' + tvSeries.poster_path" :alt="tvSeries.name" class="w-75">
+                <img :src="'https://image.tmdb.org/t/p/w342' + tvSeries.poster_path" :alt="tvSeries.name" class="w-75">
 
-                <h4>Titolo: {{ tvSeries.name }}</h4>
+                <h4 class="w-75">Titolo: {{ tvSeries.name }}</h4>
 
                 <!-- <h5>Titolo Originale: {{ tvSeries.original_title }}</h5> -->
 
@@ -35,7 +33,7 @@
                 <p> Voto {{ tvSeries.vote_average}}</p>
 
             </div>
-        </article>
+        </card>
 
     </div>
   </template>
@@ -72,5 +70,23 @@
 
 
   
-  </script>
+</script>
   
+
+<style>
+.show {
+    /* display: none; */
+  
+    top: 30%;
+    right:;
+}
+
+/* .show:hover {
+    display: inline-block;
+} */
+
+img {
+    position: relative;
+}
+
+</style>
